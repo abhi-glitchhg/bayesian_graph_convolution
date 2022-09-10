@@ -3,6 +3,7 @@ Linear layer with weights sampled from a distribution.
 this linear layer implementation is inspired from the https://github.com/mjpyeon/pytorch-bayes-by-backprop repo. Credits to the owner.
 """
 
+#TODO try with other distributions, not just gaussian distribution
 
 import torch
 import torch.nn as nn

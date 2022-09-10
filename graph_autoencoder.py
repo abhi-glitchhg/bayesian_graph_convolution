@@ -1,6 +1,4 @@
-from torch_geometric.nn  import BatchNorm
 from torch_geometric.utils import (add_self_loops, negative_sampling, remove_self_loops)
-from .bayesian_gcn import BGCNConv
 import torch.nn as nn
 import torch
 
