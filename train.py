@@ -30,7 +30,7 @@ data = dataset[0]
 data.train_mask = data.val_mask = data.test_mask = data.y = None
 data = train_test_split_edges(data)
 
-writer=SummaryWriter("./logs/BN_GAE")
+writer=SummaryWriter("./logs/BGAE")
 out_channels = 2
 num_features = dataset.num_features
 
