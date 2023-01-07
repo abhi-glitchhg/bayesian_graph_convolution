@@ -14,10 +14,10 @@ class BN_GAE(nn.Module):
         self.decoder = decoder
 
     def get_pw(self,):
-        return self.encoder.get_pw() # + self.decoder.get_pw()
+        return self.encoder.get_pw()
     
     def get_qw(self,):
-        return self.encoder.get_qw() #+ self.decoder.get_qw()
+        return self.encoder.get_qw()
 
     def encode(self, *args, **kwargs):
         r"""Runs the encoder and computes node-wise latent variables."""
@@ -48,7 +48,6 @@ class BN_GAE(nn.Module):
 
         #adding kl divergence loss
         
-      #print("loss because of the prediction : ",total_loss, " losses related to the kl-dicergence without normalization :",total_qw- total_pw, "are the losses :(")
       return {"loss":total_loss/nb_samples,"total_qw":total_qw/nb_samples,"total_pw":total_pw/nb_samples }
 
     def test(self, z, pos_edge_index, neg_edge_index):
@@ -65,5 +64,4 @@ class BN_GAE(nn.Module):
         pred = torch.cat([pos_pred, neg_pred], dim=0)
 
         y, pred = y.detach().cpu().numpy(), pred.detach().cpu().numpy()
-        #print(y, "is y", pred," is pred")
         return roc_auc_score(y, pred), average_precision_score(y, pred)

@@ -50,4 +50,3 @@ for epoch in range(1, 100):
     writer.add_scalar("ap",ap,global_step=epoch,new_style=True)
 
 
-#to visualise use tensorboard.

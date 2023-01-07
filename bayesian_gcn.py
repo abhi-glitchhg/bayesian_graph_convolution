@@ -5,7 +5,8 @@ from .linear import GaussianLinear
 
 class BGCNConv(GCNConv):
     """
-    GCN with bayesian linear layer. """
+    GCN with bayesian linear layer.
+    """
 
 
     def __init__(self, in_channels: int, out_channels: int,
