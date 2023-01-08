@@ -5,6 +5,7 @@ this linear layer implementation is inspired from the https://github.com/mjpyeon
 
 #TODO try with other distributions, not just gaussian distribution
 
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F

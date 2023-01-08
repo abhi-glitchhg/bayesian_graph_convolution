@@ -9,6 +9,7 @@ from torch_geometric.nn import BatchNorm
 EPS = 1e-5
 
 
+
 class BGCNEncoder(nn.Module):
     def __init__(self, in_channels, out_channels,is_cached=True):
         super(BGCNEncoder, self).__init__()

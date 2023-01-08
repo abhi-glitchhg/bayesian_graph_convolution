@@ -7,7 +7,6 @@ class BGCNConv(GCNConv):
     GCN with bayesian linear layer.
     """
 
-
     def __init__(self, in_channels: int, out_channels: int,
                  improved: bool = False, cached: bool = False,
                  add_self_loops: bool = True, normalize: bool = True,

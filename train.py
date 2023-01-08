@@ -4,6 +4,7 @@ from torch_geometric.utils import train_test_split_edges
 from torch.utils.tensorboard import SummaryWriter
 from torch_geometric.nn.models import InnerProductDecoder
 from .graph_autoencoder import BN_GAE, BGCNEncoder
+import torch_geometric.transforms as T
 
 def bn_train():
     model.train()
