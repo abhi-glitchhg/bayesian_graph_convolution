@@ -3,8 +3,7 @@ from torch_geometric.datasets import Planetoid
 from torch_geometric.utils import train_test_split_edges
 from torch.utils.tensorboard import SummaryWriter
 from torch_geometric.nn.models import InnerProductDecoder
-from .encoder import BGCNEncoder
-from .graph_autoencoder import BN_GAE
+from .graph_autoencoder import BN_GAE, BGCNEncoder
 
 def bn_train():
     model.train()

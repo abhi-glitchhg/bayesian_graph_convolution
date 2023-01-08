@@ -1,10 +1,30 @@
 from torch_geometric.utils import (add_self_loops, negative_sampling, remove_self_loops)
 import torch.nn as nn
 import torch
+import torch.nn as nn
+from .bayesian_gcn import BGCNConv
+from torch_geometric.nn import BatchNorm
+
 
 EPS = 1e-5
 
 
+class BGCNEncoder(nn.Module):
+    def __init__(self, in_channels, out_channels,is_cached=True):
+        super(BGCNEncoder, self).__init__()
+        self.conv1 = BGCNConv(in_channels,  out_channels, cached=is_cached) 
+    
+        self.norm1 = BatchNorm(out_channels)
+
+    def forward(self, x, edge_index):
+        return self.norm1(self.conv1(x, edge_index).tanh())
+    def get_pw(self):
+      return self.conv1.get_pw() 
+    def get_qw(self):
+      return self.conv1.get_qw() 
+
+
+# slight modification of GAE from torch geometric;
 class BN_GAE(nn.Module):
 
     def __init__(self, encoder, decoder,stddev_prior=0.1):
@@ -29,7 +49,7 @@ class BN_GAE(nn.Module):
 
     def recon_loss(self, z, pos_edge_index, input,nb_samples,neg_edge_index=None):
       
-      total_loss,total_qw, total_pw, total_log_likelihood = 0., 0., 0., 
+      total_loss,total_qw, total_pw, total_log_likelihood = 0., 0., 0., 0.
       for sample_ in range(nb_samples):
         output =self.decoder(z, pos_edge_index, sigmoid=True)
         pos_loss = -torch.log(output + EPS).mean()

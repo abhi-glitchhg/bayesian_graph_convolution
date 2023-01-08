@@ -1,4 +1,4 @@
-torch==1.10.0
+torch
 torch_geometric
 torch_sparse
 torch_scatter

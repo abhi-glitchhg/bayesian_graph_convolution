@@ -1,4 +1,3 @@
-from audioop import add
 from torch_geometric.nn import GCNConv
 
 from .linear import GaussianLinear

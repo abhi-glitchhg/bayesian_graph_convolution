@@ -20,7 +20,7 @@ def log_gaussian_prob(x, mu, sigma, log_sigma=False):
 
 
 class GaussianLinear(nn.Module):
-    def __init__(self, in_dim, out_dim, stddev_prior,bias=True):
+    def __init__(self, in_dim, out_dim, stddev_prior=0.003,bias=True):
         super(GaussianLinear, self).__init__()
         self.in_dim = in_dim
         self.out_dim = out_dim
