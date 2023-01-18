@@ -4,3 +4,4 @@ My implementation of bayesian graph convolution using torch_geometric.
 I found some of these repos helpful during the implementation. 
 
 1) [pytorch-bayes-by-backprop](https://github.com/mjpyeon/pytorch-bayes-by-backprop)
+2) [PyTorch-BayesianCNN](https://github.com/kumar-shridhar/PyTorch-BayesianCNN)
