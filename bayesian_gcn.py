@@ -15,16 +15,6 @@ class BGCNConv(GCNConv):
         kwargs.setdefault('aggr', 'add')
         super(GCNConv, self).__init__(in_channels = in_channels, out_channels=out_channels,improved=improved, cached = cached, add_self_loops= add_self_loops, normalize=normalize,
                                       bias= bias, kwargs=kwargs)
-        self.in_channels = in_channels
-        self.out_channels = out_channels
-        self.improved= improved 
-        self.cached = cached
-        self.add_self_loops = add_self_loops
-        self.normalize = normalize 
-        self.bias = bias
-
-        self._cached_edge_index = None
-        self._cached_adj_t = None
         self.lin = GaussianLinear(in_channels, out_channels, bias=True,)
 
     def get_pw(self):
